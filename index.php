@@ -6,9 +6,12 @@ $mysqli = new mysqli('localhost', 'root', '') or die('Cannot connect to database
 $mysqli->select_db('blog') or die('Cannot find database');
 $mysqli->set_charset('utf8');
 mb_internal_encoding('UTF-8');
-$act = isset($_GET['act']) ? $_GET['act'] : 'list';
+$act = isset($_GET['act']) ? $_GET['act'] : 'menu';
 define('IS_ADMIN', isset($_SESSION['IS_ADMIN']));
 switch ($act) {
+    case 'menu':
+        require('templates/menu.php');
+        break;
     case 'list':
         $records = array();
         $pages_result = $mysqli->query("SELECT COUNT(*) AS cnt FROM entry")->fetch_assoc();

@@ -1,5 +1,5 @@
 <?php require('header.php') ?>
-
+<?php if (IS_ADMIN): ?>
     <h1>Add new entry</h1>
 
     <form action="?act=do-new-entry" method="POST" class="well">
@@ -15,5 +15,8 @@
             </button>
         </div>
     </form>
+
+    <a href="?act=list">Прочитать</a>
+<?php endif ?>
 
 <?php require('footer.php') ?>

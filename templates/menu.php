@@ -26,25 +26,8 @@
 
 <?php if (IS_ADMIN): ?>
 
-    <?php foreach ($records as $row): ?>
-
-        <div class="entry">
-            <h3>
-                <a href="?act=view-entry&id=<?=$row['id']?>"><?=$row['header']?></a>
-                <?php if (IS_ADMIN): ?>
-                    <a href="?act=delete-entry&id=<?=$row['id']?>"><i class="icon-trash"></i></a>
-                <?php endif ?>
-            </h3>
-            <p class="content"><?=$row['content']?></p>
-            <div class="comments">
-                <span class="date"><?=$row['date']?></span>
-                <span class="author"><?=$row['author']?></span>
-                <a href="?act=view-entry&id=<?=$row['id']?>"><?=$row['comments']?> comment(s)</a>
-            </div>
-        </div>
-<?php endforeach ?>
-
-    <a href="?act=edit-entry">Написать</a>
+    <a href="?act=edit-entry">Написать</a></br>
+    <a href="?act=list">Прочитать</a>
 
 <?php else: ?>
 
