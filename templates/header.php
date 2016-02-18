@@ -41,8 +41,6 @@
                     <li class="active"><a href="?">Home</a></li>
                     <?php if (IS_ADMIN): ?>
                         <li><a href="?act=logout">Admin (Logout)</a></li>
-                    <?php else: ?>
-                        <li><a href="?act=login">Login</a></li>
                     <?php endif ?>
                 </ul>
             </div>

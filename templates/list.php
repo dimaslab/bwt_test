@@ -42,9 +42,9 @@
                 <a href="?act=view-entry&id=<?=$row['id']?>"><?=$row['comments']?> comment(s)</a>
             </div>
         </div>
+<?php endforeach ?>
 
-        <a href="?act=edit-entry">Обратная связь</a>
-    <?php endforeach ?>
+    <a href="?act=edit-entry">Обратная связь</a>
 
 <?php else: ?>
 
