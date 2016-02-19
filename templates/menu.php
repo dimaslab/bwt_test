@@ -26,6 +26,12 @@
 
 <?php if (IS_ADMIN): ?>
 
+    Погода в ЗП
+
+<?php endif ?>
+</br></br></br>
+<?php if (IS_ADMIN): ?>
+
     <a href="?act=edit-entry">Написать</a></br>
     <a href="?act=list">Прочитать</a>
 
@@ -46,12 +52,5 @@
 <?php endif ?>
 
 
-
-<?php if (IS_ADMIN): ?>
-
-
-
-
-<?php endif ?>
 
 <?php require('footer.php') ?>
