@@ -25,35 +25,17 @@
 </style>
 
 <?php if (IS_ADMIN): ?>
-
-    Погода в ЗП
-
 <?php require('weather.php') ?>
+<?php echo $res;?>
 
-    <?php
-    echo $res;
-    ?>
-
-<?php endif ?>
 </br></br></br>
-<?php if (IS_ADMIN): ?>
 
-    <a href="?act=edit-entry">Написать</a></br>
-    <a href="?act=list">Прочитать</a>
+<a href="?act=edit-entry">Написать</a></br>
+<a href="?act=list">Прочитать</a>
 
 <?php else: ?>
 
-    <form action="?act=do-login" method="POST" class="well">
-        <label>Login</label>
-        <input name="login" type="text" />
-        <label>Password</label>
-        <input name="password" type="password" />
-        <div style="padding-top: 10px;">
-            <button type="submit" class="btn">
-                Login
-            </button>
-        </div>
-    </form>
+<?php require('login.php') ?>
 
 <?php endif ?>
 

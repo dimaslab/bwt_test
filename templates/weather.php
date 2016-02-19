@@ -5,12 +5,10 @@ function startElement($parser, $name, $attrs) {
     global $res;
     switch ($name) {
         case 'TOWN':
-            $res .= 'Город - ';
+            $res .= 'Погода в ';
             $res .= '<strong>'.mb_convert_encoding(
                     urldecode($attrs['SNAME']),
                     'UTF-8', 'windows-1251').'</strong><br />';
-            $res .= 'широта - '.$attrs['LATITUDE'].' градусов<br />';
-            $res .= 'долгота - '.$attrs['LONGITUDE'].' градусов<br />';
             break;
         case 'FORECAST':
             $res .= 'Температура '.$attrs['DAY'].'.'.$attrs['MONTH'].'.'.
