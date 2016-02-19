@@ -28,6 +28,12 @@
 
     Погода в ЗП
 
+<?php require('weather.php') ?>
+
+    <?php
+    echo $res;
+    ?>
+
 <?php endif ?>
 </br></br></br>
 <?php if (IS_ADMIN): ?>
