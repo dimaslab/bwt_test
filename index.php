@@ -7,7 +7,9 @@ $mysqli->select_db('blog') or die('Cannot find database');
 $mysqli->set_charset('utf8');
 mb_internal_encoding('UTF-8');
 $act = isset($_GET['act']) ? $_GET['act'] : 'menu';
+
 define('IS_ADMIN', isset($_SESSION['IS_ADMIN']));
+
 switch ($act) {
     case 'menu':
         require('templates/menu.php');
@@ -60,6 +62,9 @@ switch ($act) {
         } else {
             die("Cannot insert entry");
         }
+        break;
+    case 'save-user':
+        require('templates/save_user.php');
         break;
     case 'edit-entry':
         if (!IS_ADMIN) die("You must be admin to edit entry");

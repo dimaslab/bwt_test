@@ -1,5 +1,3 @@
-<?php require('header.php') ?>
-
 <form action="?act=do-login" method="POST" class="well">
     <label>Login</label>
     <input name="login" type="text" />
@@ -11,5 +9,3 @@
         </button>
     </div>
 </form>
-
-<?php require('footer.php') ?>

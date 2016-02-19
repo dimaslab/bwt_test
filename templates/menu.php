@@ -36,6 +36,7 @@
 <?php else: ?>
 
 <?php require('login.php') ?>
+<?php require('reg.php') ?>
 
 <?php endif ?>
 
