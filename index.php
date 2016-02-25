@@ -104,7 +104,14 @@ switch ($act) {
         $login = $_POST['login'];
         $password=md5($_POST['password']);
         $result = $mysqli->query("SELECT * FROM users WHERE login_name = '$login' AND pass = '$password'")->fetch_assoc();
-        require('templates/test-login.php');
+         if ($login == $result['login_name'] && $password == $result['pass']) {
+            $_SESSION['IS_ADMIN'] = true;
+            header('Location: .');
+        } else {
+            header('Location: ?act=login');
+        }
+
+
         break;
     default:
         die("No such action");
