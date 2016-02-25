@@ -37,10 +37,9 @@ $mail = trim($mail);
 $pass = md5($pass);
 
 $stmt = $mysqli->prepare("INSERT INTO users(login_name,pass,f_name,l_name,sex,mail,b_date) VALUES (?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param('sssssss', $login, $pass, $f_name, $l_name, $mail, $sex, $b_date);
-
-/* выполнение подготовленного запроса */
+$stmt->bind_param('sssssss', $login, $pass, $f_name, $l_name, $sex, $mail, $b_date);
 $stmt->execute();
+
 
 printf("%d строк вставлено.\n", $stmt->affected_rows);
 

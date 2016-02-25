@@ -101,12 +101,10 @@ switch ($act) {
         header('Location: .');
         break;
     case 'do-login':
-        if ($_POST['login'] == 'login' && $_POST['password'] == '123') {
-            $_SESSION['IS_ADMIN'] = true;
-            header('Location: .');
-        } else {
-            header('Location: ?act=login');
-        }
+        $login = $_POST['login'];
+        $password=md5($_POST['password']);
+        $result = $mysqli->query("SELECT * FROM users WHERE login_name = '$login' AND pass = '$password'")->fetch_assoc();
+        require('templates/test-login.php');
         break;
     default:
         die("No such action");
