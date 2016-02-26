@@ -96,6 +96,9 @@ switch ($act) {
     case 'login':
         require('templates/login.php');
         break;
+    case 'reg':
+        require('templates/reg.php');
+        break;
     case 'logout':
         unset($_SESSION['IS_ADMIN']);
         header('Location: .');

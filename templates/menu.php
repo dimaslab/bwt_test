@@ -33,11 +33,6 @@
 <a href="?act=edit-entry">Написать</a></br>
 <a href="?act=list">Прочитать</a>
 
-<?php else: ?>
-
-<?php require('login.php') ?>
-<?php require('reg.php') ?>
-
 <?php endif ?>
 
 

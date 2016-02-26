@@ -1,3 +1,5 @@
+<?php require('header.php') ?>
+
 <h2>Регистрация</h2>
     <form action="?act=save-user" method="post">
 <p>
@@ -37,3 +39,4 @@
     <input type="submit" name="submit" value="Зарегистрироваться">
 
 </p></form>
+<?php require('footer.php') ?>
