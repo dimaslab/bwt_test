@@ -54,6 +54,7 @@ switch ($act) {
         break;
     case 'do-new-entry':
         if (!IS_ADMIN) die("<div style='background-color: #dff0d8; padding: 15px; border-radius: 15px; width: 500px;  margin: 150px auto;' class='bs-callout bs-callout-info' align='center'><h1>Ошибка!</h1><p class='lead'>Только авторизированные пользователи могут писать сообщение.</p><a class='btn btn-large btn-success' href='?act=reg'>Зарегистрироватся</a></div></p>");
+        if($_POST['kapcha'] != $_SESSION['rand_code']) die("<div style='background-color: #dff0d8; padding: 15px; border-radius: 15px; width: 500px;  margin: 150px auto;' class='bs-callout bs-callout-info' align='center'><h1>Ошибка!</h1><p class='lead'>Капча введена неверно</p><a class='btn btn-large btn-success' href='?act=edit-entry'>Поробовать еще</a></div></p>");
         $sel = $mysqli->prepare("INSERT INTO entry(author, date, mail, content) VALUES(?, ?, ?, ?)");
         $time = time();
         $sel->bind_param('siss', $_POST['author'], $time, $_POST['mail'], $_POST['content']);
@@ -69,19 +70,6 @@ switch ($act) {
     case 'edit-entry':
         if (!IS_ADMIN) die("You must be admin to edit entry");
         require('templates/edit-entry.php');
-        break;
-    case 'delete-entry':
-        if (!IS_ADMIN) die("You must be admin to delete entry");
-        $id = intval($_GET['id']);
-        $mysqli->query("DELETE FROM entry WHERE id = $id") or die("Cannot delete entry");
-        $mysqli->query("DELETE FROM comment WHERE entry_id = $id") or die("Cannot delete comment");
-        header('Location: .');
-        break;
-    case 'delete-comment':
-        if (!IS_ADMIN) die("You must be admin to delete entry");
-        $id = intval($_GET['id']);
-        $mysqli->query("DELETE FROM comment WHERE id = $id") or die("Cannot delete comment");
-        header('Location: ?act=view-entry&id=' . intval($_GET['entry_id']));
         break;
     case 'do-new-comment':
         $sel = $mysqli->prepare("INSERT INTO comment(entry_id, author, date, content) VALUES(?, ?, ?, ?)");

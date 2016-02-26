@@ -9,13 +9,12 @@
 
     <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
     <style>
         body {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
         }
     </style>
-    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -35,25 +34,41 @@
         });
     </script>
     <style type="text/css">
-        .comments {
-            font-size: 0.8em;
-            margin-bottom: 20px;
+        .date{
+            font-size: 10pt;
+            color: #fff;
+            margin: -20px 0px 0px 15px;
+            position: absolute;
         }
-        .date, .author {
-            margin-right: 10px;
-        }
-        .content {
-            padding-top: 5px;
-            padding-left: 15px;
-        }
-        .entry {
-            padding-left: 20px;
-        }
+
         h1 {
             margin-bottom: 10px;
         }
         .pages {
             margin-bottom: 20px;
+        }
+        .panel-primary {
+            border-color: #337ab7;
+        }
+        .panel {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid #53A753;
+            border-radius: 5px;
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        }
+        .panel-heading {
+            background-image: linear-gradient( #62c462, #51a351);
+            padding: 10px;
+            border-radius: 3px 3px 0px 0px;
+        }
+        .panel-title {
+            margin: 0px 0px 0px 15px;
+            font-size: 21px;
+            color: #ffffff;
+        }
+        .panel-body {
+            margin: 15px;
         }
     </style>
 </head>

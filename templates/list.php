@@ -1,46 +1,23 @@
 
 <?php require('header.php') ?>
 
-<style type="text/css">
-    .comments {
-        font-size: 0.8em;
-        margin-bottom: 20px;
-    }
-    .date, .author {
-        margin-right: 10px;
-    }
-    .content {
-        padding-top: 5px;
-        padding-left: 15px;
-    }
-    .entry {
-        padding-left: 20px;
-    }
-    h1 {
-        margin-bottom: 10px;
-    }
-    .pages {
-        margin-bottom: 20px;
-    }
-</style>
 
 <?php if (IS_ADMIN): ?>
-
+<div style="width:700px; color: #777777;margin: auto 15px;" ><h3>Cписок фидбеков</h3></div>
     <?php foreach ($records as $row): ?>
 
-        <div class="entry">
-            <h3>
-                <?=$row['author']?>
-                <?php if (IS_ADMIN): ?>
-                    <a href="?act=delete-entry&id=<?=$row['id']?>"><i class="icon-trash"></i></a>
-                <?php endif ?>
-            </h3>
-            <div class="comments">
-                <span class="date"><?=$row['date']?></span>
-                <span class="author"><?=$row['mail']?></span>
+        <div style="width:700px;margin: auto 15px;" >
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?=$row['author']?></h3></br>
+                    <span class="date"><?=$row['date']?></span>
+                </div>
+                <div class="panel-body">
+                    <?=$row['content']?>
+                </div>
             </div>
-            <p class="content"><?=$row['content']?></p>
         </div>
+
 <?php endforeach ?>
 
 
@@ -60,13 +37,5 @@
 
 <?php endif ?>
 
-
-
-<?php if (IS_ADMIN): ?>
-
-
-
-
-<?php endif ?>
 
 <?php require('footer.php') ?>

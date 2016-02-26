@@ -14,16 +14,14 @@
 
                 <label>Сообщение<br></label>
                 <textarea name="content" rows="5"></textarea>
-            </p>
 
-            <p>
+                <h3>Проверчный код</h3>
+                <a href="?act=edit-entry"><img src = "captcha.php" /></a>
+                <input type = "text" name = "kapcha" /></br></br>
                 <input class="btn btn-large btn-success" type="submit" name="submit" value="Отправить">
-
-            </p></form>
+        </form>
     </div>
 
-
-    <a href="?act=list">Прочитать</a>
 <?php endif ?>
 
 <?php require('footer.php') ?>
