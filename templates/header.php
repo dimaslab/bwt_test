@@ -40,7 +40,7 @@
                 <ul class="nav">
                     <li class="active"><a href="?">Home</a></li>
                     <?php if (IS_ADMIN): ?>
-                        <li><a href="?act=logout">Admin (Logout)</a></li>
+                        <li><a href="?act=logout">Выйти</a></li>
                     <?php endif ?>
                 </ul>
             </div>

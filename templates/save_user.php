@@ -36,12 +36,16 @@ $mail = trim($mail);
 
 $pass = md5($pass);
 
+$result = $mysqli->query("SELECT id FROM users WHERE login_name = '$login'")->fetch_assoc();
+if (!empty($result['id'])) {
+    exit ("Извините, введённый вами логин уже зарегистрирован. Введите другой логин.");
+}
+
 $stmt = $mysqli->prepare("INSERT INTO users(login_name,pass,f_name,l_name,sex,mail,b_date) VALUES (?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param('sssssss', $login, $pass, $f_name, $l_name, $sex, $mail, $b_date);
 $stmt->execute();
 
-
-printf("%d строк вставлено.\n", $stmt->affected_rows);
+echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='?'>Главная страница</a>";
 
 /* закрываем подключение */
 $mysqli->close();
