@@ -1,15 +1,16 @@
 <?php require('header.php') ?>
 
-<h2>Регистрация</h2>
+<div style='background-color: #dff0d8; padding: 15px; border-radius: 15px; width: 500px;  margin: 50px auto;' class='bs-callout bs-callout-info' align='center'>
+    <h2>Регистрация</h2>
     <form action="?act=save-user" method="post">
-<p>
+<div class="form-group">
     <label>Ваш логин:<br></label>
-    <input name="login_name" type="text" size="15" maxlength="15" required>
-</p>
+    <input name="login_name" type="text" required>
+</div>
 
 <p>
     <label>Ваш пароль:<br></label>
-    <input name="pass" type="password" size="15" maxlength="15" required>
+    <input class="form-control" name="pass" type="password" required>
 </p>
 <p>
      <label>Имя:<br></label>
@@ -36,7 +37,8 @@
 </p>
 
 <p>
-    <input type="submit" name="submit" value="Зарегистрироваться">
+    <input class="btn btn-large btn-success" type="submit" name="submit" value="Зарегистрироваться">
 
 </p></form>
+    </div
 <?php require('footer.php') ?>

@@ -38,14 +38,14 @@ $pass = md5($pass);
 
 $result = $mysqli->query("SELECT id FROM users WHERE login_name = '$login'")->fetch_assoc();
 if (!empty($result['id'])) {
-    exit ("Извините, введённый вами логин уже зарегистрирован. Введите другой логин.");
+    exit ("<div style='background-color: #dff0d8; padding: 15px; border-radius: 15px; width: 500px;  margin: 150px auto;' class='bs-callout bs-callout-info' align='center'><p class='lead'>Извините, введённый вами логин уже зарегистрирован. Введите другой логин.</p><a class='btn btn-large btn-success' href='?act=reg'>Регистрация</a></div></p>");
 }
 
 $stmt = $mysqli->prepare("INSERT INTO users(login_name,pass,f_name,l_name,sex,mail,b_date) VALUES (?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param('sssssss', $login, $pass, $f_name, $l_name, $sex, $mail, $b_date);
 $stmt->execute();
 
-echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='?'>Главная страница</a>";
+echo "<div style='background-color: #dff0d8; padding: 15px; border-radius: 15px; width: 500px;  margin: 150px auto;' class='bs-callout bs-callout-info' align='center'><h1>Вы успешно зарегистрированы!</h1><p class='lead'>Теперь вы можете зайти на сайт.</p><a class='btn btn-large btn-success' href='?'>Главная страница</a></div></p>";
 
 /* закрываем подключение */
 $mysqli->close();

@@ -5,10 +5,10 @@ function startElement($parser, $name, $attrs) {
     global $res;
     switch ($name) {
         case 'TOWN':
-            $res .= 'Погода в ';
+            $res .= '<h1>Погода в ';
             $res .= '<strong>'.mb_convert_encoding(
                     urldecode($attrs['SNAME']),
-                    'UTF-8', 'windows-1251').'</strong><br />';
+                    'UTF-8', 'windows-1251').'</strong></h1><br />';
             break;
         case 'FORECAST':
             $res .= 'Температура '.$attrs['DAY'].'.'.$attrs['MONTH'].'.'.
@@ -40,4 +40,8 @@ if (!xml_parse($XMLparser, $data)) {
     die('Ошибка обработки данных');
 }
 xml_parser_free($XMLparser);
+
 ?>
+<div style='background-color: #dff0d8; padding: 15px; border-radius: 15px; width: 500px;  margin: 50px auto;' class='bs-callout bs-callout-info' align='center'>
+<?=$res;?>
+</div>

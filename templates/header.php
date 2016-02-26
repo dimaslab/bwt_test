@@ -9,6 +9,7 @@
 
     <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
     <style>
         body {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -33,6 +34,28 @@
             });
         });
     </script>
+    <style type="text/css">
+        .comments {
+            font-size: 0.8em;
+            margin-bottom: 20px;
+        }
+        .date, .author {
+            margin-right: 10px;
+        }
+        .content {
+            padding-top: 5px;
+            padding-left: 15px;
+        }
+        .entry {
+            padding-left: 20px;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        .pages {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -52,8 +75,7 @@
     <div class="navbar-inner">
         <div class="container">
 
-            <a href="?" class="brand">My Site</a>
-
+            <a href="?" class="brand">TEST SITE</a>
 
             <div class="nav-collapse">
                 <ul class="nav pull-right">
@@ -65,16 +87,17 @@
                         <li><a href='?act=reg'>Зарегистрироваться</a></li>
                         <li class='divider-vertical'></li>
                         <li class='dropdown'>
-                        <a class='dropdown-toggle' href='#' data-toggle='dropdown'>Войти <strong class='caret'></strong></a>
+                        <a class='dropdown-toggle' href='#' data-toggle='dropdown'>Вход <strong class='caret'></strong></a>
                         <div class='dropdown-menu' style='padding: 15px; padding-bottom: 0px;'>
                             <form action='?act=do-login' method='POST' class='well'>
-                                <label>Login</label>
-                                <input name='login' type='text' />
-                                <label>Password</label>
+                                <div class='form-group has-success'>
+                                <label>Логин</label>
+                                <input name='login' type='text'/></div>
+                                <label>Пароль</label>
                                 <input name='password' type='password' />
                                 <div style='padding-top: 10px;'>
-                                    <button type='submit' class='btn'>
-                                        Login
+                                    <button type='submit' class='btn btn-sm btn-success'>
+                                        Войти
                                     </button>
                                 </div>
                             </form>

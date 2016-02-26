@@ -5,7 +5,7 @@
     <label>Password</label>
     <input name="password" type="password" />
     <div style="padding-top: 10px;">
-        <button type="submit" class="btn">
+        <button type="submit" class="btn btn-large btn-success">
             Login
         </button>
     </div>

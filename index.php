@@ -111,9 +111,8 @@ switch ($act) {
             $_SESSION['IS_ADMIN'] = true;
             header('Location: .');
         } else {
-            header('Location: ?act=login');
+            header('Location: .');
         }
-
 
         break;
     default:
