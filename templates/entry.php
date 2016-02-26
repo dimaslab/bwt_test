@@ -25,11 +25,10 @@
     }
 </style>
 
-<h2><?=$ENTRY['header']?></h2>
+<h2><?=$ENTRY['author']?></h2>
 <p class="content"><?=$ENTRY['content']?></p>
 <div class="comments">
     <span class="date"><?=$ENTRY['date']?></span>
-    <span class="author"><?=$ENTRY['author']?></span>
 </div>
 
 <h2>Comments</h2>

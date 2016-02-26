@@ -40,5 +40,5 @@
     <input class="btn btn-large btn-success" type="submit" name="submit" value="Зарегистрироваться">
 
 </p></form>
-    </div
+    </div>
 <?php require('footer.php') ?>

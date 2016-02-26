@@ -29,7 +29,7 @@ switch ($act) {
                 $row['content'] = mb_substr(strip_tags($row['content']), 0, 57) . '...';
             }
             $row['content'] = nl2br($row['content']);
-            $row['header'] = htmlspecialchars($row['header']);
+            $row['mail'] = htmlspecialchars($row['mail']);
             $records[] = $row;
         }
         require('templates/list.php');
@@ -41,7 +41,7 @@ switch ($act) {
         if (!$ENTRY) die("No such entry");
         $ENTRY['date'] = date('Y-m-d H:i:s', $ENTRY['date']);
         $ENTRY['content'] = nl2br($ENTRY['content']);
-        $ENTRY['header'] = htmlspecialchars($ENTRY['header']);
+        $ENTRY['mail'] = htmlspecialchars($ENTRY['mail']);
         $comments = array();
         $sel = $mysqli->query("SELECT * FROM comment WHERE entry_id = $id ORDER BY date");
         while ($row = $sel->fetch_assoc()) {
@@ -53,10 +53,10 @@ switch ($act) {
         require('templates/entry.php');
         break;
     case 'do-new-entry':
-        if (!IS_ADMIN) die("You must be admin to add entry");
-        $sel = $mysqli->prepare("INSERT INTO entry(author, date, header, content) VALUES(?, ?, ?, ?)");
+        if (!IS_ADMIN) die("<div style='background-color: #dff0d8; padding: 15px; border-radius: 15px; width: 500px;  margin: 150px auto;' class='bs-callout bs-callout-info' align='center'><h1>Ошибка!</h1><p class='lead'>Только авторизированные пользователи могут писать сообщение.</p><a class='btn btn-large btn-success' href='?act=reg'>Зарегистрироватся</a></div></p>");
+        $sel = $mysqli->prepare("INSERT INTO entry(author, date, mail, content) VALUES(?, ?, ?, ?)");
         $time = time();
-        $sel->bind_param('siss', $_POST['author'], $time, $_POST['header'], $_POST['content']);
+        $sel->bind_param('siss', $_POST['author'], $time, $_POST['mail'], $_POST['content']);
         if ($sel->execute()) {
             header('Location: ?act=list');
         } else {
