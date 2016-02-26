@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,25 +22,68 @@
     <![endif]-->
     <script src="bootstrap/js/jquery-1.12.0.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+// Setup drop down menu
+            $('.dropdown-toggle').dropdown();
+
+// Fix input element click problem
+            $('.dropdown input, .dropdown label').click(function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
 </head>
 
 <body>
+<script type="text/javascript">
+    $(function() {
+// Setup drop down menu
+        $('.dropdown-toggle').dropdown();
+
+// Fix input element click problem
+        $('.dropdown input, .dropdown label').click(function(e) {
+            e.stopPropagation();
+        });
+    });
+</script>
 
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="?">My personal blog</a>
+
+            <a href="?" class="brand">My Site</a>
+
+
             <div class="nav-collapse">
-                <ul class="nav">
-                    <li class="active"><a href="?">Home</a></li>
-                    <?php if (IS_ADMIN): ?>
-                        <li><a href="?act=logout">Выйти</a></li>
-                    <?php endif ?>
+                <ul class="nav pull-right">
+                    <?php
+                    if (IS_ADMIN):
+                        echo "<li><a href='?act=logout'>Выйти</a></li>";
+                     else:
+                        echo "
+                        <li><a href='?act=reg'>Зарегистрироваться</a></li>
+                        <li class='divider-vertical'></li>
+                        <li class='dropdown'>
+                        <a class='dropdown-toggle' href='#' data-toggle='dropdown'>Войти <strong class='caret'></strong></a>
+                        <div class='dropdown-menu' style='padding: 15px; padding-bottom: 0px;'>
+                            <form action='?act=do-login' method='POST' class='well'>
+                                <label>Login</label>
+                                <input name='login' type='text' />
+                                <label>Password</label>
+                                <input name='password' type='password' />
+                                <div style='padding-top: 10px;'>
+                                    <button type='submit' class='btn'>
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                        ";
+                    endif;
+                    ?>
+
                 </ul>
             </div>
         </div>
